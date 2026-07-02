@@ -1,0 +1,57 @@
+name: Deploy Jekyll site to Pages
+
+on:
+  # Roda a automação toda vez que você enviar código para a branch main
+  push:
+    branches: ["main"]
+
+  # Permite que você execute esse workflow manualmente pela aba Actions no GitHub
+  workflow_dispatch:
+
+# Define as permissões necessárias para o token do GitHub Actions conseguir publicar o site
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que se você fizer múltiplos pushes seguidos, ele cancele o anterior e foque no mais recente
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Etapa de construção (Build)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Versão estável do Ruby recomendada para o ambiente do GitHub
+          bundler-cache: true # Faz o cache das gems para os próximos deploys serem super rápidos
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # Etapa de publicação (Deploy)
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
