@@ -1,59 +1,133 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+theme: jekyll-theme-chirpy
 
-title: Meu Blog
+lang: pt-BR
+timezone: America/Sao_Paulo
+
+title: Lucas Dev
+tagline: Desenvolvedor Full Stack em Formação
 email: lucasfisio.ramos@gmail.com
 description: >-
-  Um blog sobre desenvolvimento de software, tecnologia e meus projetos de estudos.
+  Desenvolvedor de software em formação, com foco em backend e aplicações web.
+  Construo soluções utilizando Python, Flask, SQL, Docker e Git, buscando criar
+  sistemas escaláveis, bem estruturados e orientados à resolução de problemas reais.
 
-# Configuração de URLs (Crucial para o GitHub Pages)
-baseurl: "" 
-url: "https://github.com/lucasfisioramos-cmyk" # Substitua pelo seu link do GitHub
+url: "https://lucasfisioramos-cmyk.github.io"
+baseurl: ""
 
-# Redes Sociais
-twitter_username: 
-github_username: lucasfisioramos-cmyk # Substitua pelo seu usuário do GitHub
+github:
+  username: lucasfisioramos-cmyk
 
-# Configurações de Build
-theme: minima
+twitter:
+  username:
 
-# Plugins suportados nativamente pelo GitHub Pages
+social:
+  name: Lucas
+  email: lucasfisio.ramos@gmail.com
+  links:
+    - https://meuprojetogit-omega.vercel.app/
+    - https://github.com/lucasfisioramos-cmyk
+
+webmaster_verifications: {}
+
+theme_mode:
+
+avatar:
+
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  matomo:
+    id:
+    domain:
+  cloudflare:
+    id:
+  fathom:
+    id:
+
+pageviews:
+  provider:
+
+comments:
+  provider:
+
+assets:
+  self_host:
+    enabled:
+    env:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths:
+
+paginate: 10
+
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - "node_modules"
+  - "vendor"
+  - "_site"
+  - ".bundle"
+  - ".sass-cache"
+  - ".jekyll-cache"
+  - ".jekyll-metadata"
+  - "Gemfile"
+  - "Gemfile.lock"
