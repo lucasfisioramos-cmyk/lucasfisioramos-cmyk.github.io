@@ -3,13 +3,13 @@ theme: jekyll-theme-chirpy
 lang: pt-BR
 timezone: America/Sao_Paulo
 
-title: Lucas Dev
-tagline: Desenvolvedor Full Stack em Formação
+title: Dr. Lucas Lemes - Fisioterapeuta
+tagline: FisioDev
 email: lucasfisio.ramos@gmail.com
 description: >-
-  Desenvolvedor de software em formação, com foco em backend e aplicações web.
-  Construo soluções utilizando Python, Flask, SQL, Docker e Git, buscando criar
-  sistemas escaláveis, bem estruturados e orientados à resolução de problemas reais.
+  Seja muito bem-vindo! Este blog é o canal oficial de conteúdo da minha prática clínica em 
+  Fisioterapia e Quiropraxia, criada para ajudar você a se livrar da dor, 
+  recuperar a mobilidade e viver com mais qualidade de vida.
 
 url: "https://lucasfisioramos-cmyk.github.io"
 baseurl: ""
@@ -24,8 +24,7 @@ social:
   name: Lucas
   email: lucasfisio.ramos@gmail.com
   links:
-    - https://meuprojetogit-omega.vercel.app/
-    - https://github.com/lucasfisioramos-cmyk
+  - https://www.instagram.com/drlucaslemesfisioterapeuta?igsi=MTVpNnQzd284NHl4MQ==
 
 webmaster_verifications: {}
 
